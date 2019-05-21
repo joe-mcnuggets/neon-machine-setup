@@ -37,7 +37,7 @@ sudo apt-get install -y git
 
 # Emacs
 echo -e "${PURPLE}Installing libs to build emacs${NC}"
-sudo apt-get install -y build-essential xorg-dev libjpeg-dev libgif-dev libtiff-dev gnutls-dev libtinfo-dev libcairo-dev
+sudo apt-get install -y build-essential xorg-dev libjpeg-dev libgif-dev libtiff-dev gnutls-dev libtinfo-dev libcairo-dev libgtk-3-dev
 # TODO: wget emacs, check signature and build
 # ./configure --with-cairo
 # TODO: become less lazy
@@ -90,4 +90,11 @@ sudo tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 go -v
 # TODO: automate this
-echo "Add export PATH=$PATH:/usr/local/go/bin to your ./.profile"
+echo 'Add export PATH=\$PATH:/usr/local/go/bin to your ./.profile'
+rm go1.12.5.linux-amd64.tar.gz
+
+echo -e "${PURPLE}Installing Snap${NC}"
+sudo apt install snapd
+
+echo -e "${PURPLE}Installing slack${NC}"
+sudo snap install slack --classic
